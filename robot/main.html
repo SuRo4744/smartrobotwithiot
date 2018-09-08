@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>IoT Based military Robot.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>IoT Based </strong>Wireless Multifuctional Robot  <strong>MMCOE, PUNE</strong> </a>
+									<ul class="icons">
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+					<h1>Dashboard </h1>	
+					<button class="btn btn-primary" onclick="init()">Connect with Robot</button>
+					<button id="openModalBtn" class="openModal" onClick="openModal()">
+  Sensor Status
+</button>
+
+
+
+<div class="modal" id="modalBox">
+  <div class="modalHeader">
+    <i class="  closeModal">X</i>
+    <h1>
+      Temperature
+    </h1>
+  </div>
+  <div class="bodyModal">
+      <table>
+    <tr><td><h4>Temprature is :<h4 id="msg">Loading</h4></h4></td></tr>
+    <tr><td><h4>Humidity is :<h4 id="msg2">Loading</h4></h4></td></tr>
+    <tr><td><h4>Gas :<h4 id="msg3">Loading</h4></h4></td></tr>
+    <tr><td><h4>Fire :<h4 id="msg4">Loading</h4></h4></td></tr>
+    <tr><td><h4>Metal :<h4 id="msg5">Loading</h4></h4></td></tr>
+    </table>
+  </div>
+  
+</div>
+
+
+	
+	
+	
+					<!--
+					
+					<table><tr><td>Temperaure/Humidity</td><td>FIRE</td><td>GAS</td><td>Metal</td></tr>
+											<tr><td><p id="msg">Loading...</p></td><td><p id="msg2">Loading...</p></td><td><p id="msg3">Not</p></td><td><p id="msg4">Not</p></td></tr>
+<tr><td colspan="4" id="landm">Location of Land Mine :</div></td></tr>
+											
+									</table>	--></header>
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="forw()" type="button" class="btn btn-default btn-circle btn-xl"><h2>&uarr;</h2></i></button></br></br>	
+<button onclick="left()" type="button" class="btn btn-primary btn-circle btn-xl"><h2>&larr;</h2></button>
+&nbsp;&nbsp;&nbsp;<button onclick="stop()" type="button" class="btn btn-success btn-circle btn-xl"><h2>&#9737;</h2></i></button>&nbsp;&nbsp;&nbsp;
+<button onclick="right()" type="button" class="btn btn-info btn-circle btn-xl"><h2>&rarr;</h2></button></br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="back()" type="button" class="btn btn-warning btn-circle btn-xl"><h2>&darr;</h2></i></button>
+								<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+									
+									
+									
+									<p>A IoT Dashboard </p>
+
+
+										
+
+									</div>
+									<span class="image object">
+										<img  src="images/cam1.jpg">
+									</span>
+								</section>
+
+							
+							
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									
+												<section>
+									
+							<!-- Section -->
+								<section>
+									<header class="major"> </br>
+										<h2>Get in touch</h2>
+									</header>
+
+									
+									<ul class="contact">
+										<li class="fa-envelope-o"><a href="smsinnarkar@gmail.com"></a></li>
+													
+
+										<li class="fa-phone"></li>
+
+										<li class="fa-home">,<br />
+										PUNE, MH INDIA</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy;  All rights reserved.Developed by </p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+		    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    //sample HTML/JS script that will publish/subscribe to topics in the Google Chrome Console
+    //by Matthew Bordignon @bordignon on twitter.
+    var msg;
+    var wsbroker = "broker.hivemq.com";  //mqtt websocket enabled broker
+    var wsport = 8000 // port for above
+    var client = new Paho.MQTT.Client(wsbroker, wsport,
+        "myclientid_" + parseInt(Math.random() * 100, 10));
+    
+    client.onConnectionLost = function (responseObject) {
+      console.log("connection lost: " + responseObject.errorMessage);
+    };
+    client.onMessageArrived = function (message) {
+      console.log(message.destinationName, ' -- ', message.payloadString);
+       var msg=message.payloadString;
+       
+       
+    if(message.destinationName=='/robot/temp'){
+        var temp=message.payloadString;
+	document.getElementById("msg").innerHTML = temp + " -.C";
+	
+	var value1 = parseInt(temp);
+	var value2 = parseInt(temp) + 1;
+	var value3 = parseInt(temp) - 2;
+	var value4 = parseInt(temp) + 3;
+	
+	var chart = new CanvasJS.Chart("chartContainer", {
+			animationEnabled: true,
+			theme: "light2",
+			title:{
+				text: "Humidity Line Chart"
+			},
+			axisY:{
+				includeZero: false
+			},
+			data: [{        
+					type: "line",       
+					dataPoints: [
+					{ y: value1 },
+					{ y: value2 },
+					{ y: value3 },
+					{ y: value4 },
+					//{ y: third, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+					//{ y: fourth , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+					]
+				}]
+			});
+		chart.render();
+	
+
+    }
+	
+	if(message.destinationName=='/robot/hum'){
+	    var hum=message.payloadString;
+        document.getElementById("msg2").innerHTML = hum+ " - %";
+        
+	}
+        
+    if(message.destinationName=='/robot/gas'){
+        var gas=message.payloadString;
+        if(gas==1){
+	document.getElementById("msg3").innerHTML = "No gas detected";
+	document.getElementById("msg3").style.color= "green";		}
+	else{
+	document.getElementById("msg3").innerHTML = "gas Detected";
+	document.getElementById("msg3").style.color= "red";
+		}
+		
+    }
+    
+    if(message.destinationName=='/robot/fire'){
+        var fire=message.payloadString;
+        
+             
+     
+     
+     
+     if(fire==1){
+	document.getElementById("msg4").innerHTML = "No Fire detected";
+	document.getElementById("msg4").style.color= "green";		}
+	else{
+	document.getElementById("msg4").innerHTML = "Fire detected";
+	document.getElementById("msg4").style.color= "red";
+									}
+    }
+    
+    
+    
+    if(message.destinationName=='/robot/pir'){
+        var pir=message.payloadString;
+
+	if(pir==1){
+	document.getElementById("msg5").innerHTML = "No Metal detected";
+	document.getElementById("msg5").style.color= "green";
+	}
+	
+	else{
+	document.getElementById("msg5").innerHTML = "Metal Detected";
+	document.getElementById("msg5").style.color= "red";
+		}
+}
+	
+    };
+
+
+    var options = {
+      timeout: 3,
+      onSuccess: function () {
+		  window.alert("Connected with robot!");
+        console.log("mqtt connected");
+        // Connection succeeded; subscribe to our topic, you can add multile lines of these
+        client.subscribe('/robot/#', {qos: 1});
+
+        //use the below if you want to publish to a topic on connect
+        message = new Paho.MQTT.Message("028");
+        message.destinationName = "/robot/temp";
+        client.send(message);
+        
+         message = new Paho.MQTT.Message("40");
+        message.destinationName = "/robot/hum";
+        client.send(message);
+      },
+      onFailure: function (message) {
+		  window.alert("Error in connecting with robot!");
+        console.log("Connection failed: " + message.errorMessage);
+      }
+    };
+  function init() {
+      client.connect(options);
+  }
+
+  function forw()
+{
+message = new Paho.MQTT.Message("for");
+        message.destinationName = "/robot";
+        client.send(message);
+}
+
+function left()
+{
+
+message = new Paho.MQTT.Message("left");
+        message.destinationName = "/robot";
+        client.send(message);
+}
+
+function right()
+{
+
+message = new Paho.MQTT.Message("right");
+        message.destinationName = "/robot";
+        client.send(message);
+}
+
+function back()
+{
+
+message = new Paho.MQTT.Message("rev");
+        message.destinationName = "/robot";
+        client.send(message);
+}
+
+function stop()
+{
+
+message = new Paho.MQTT.Message("stop");
+        message.destinationName = "/robot";
+        client.send(message);
+}
+
+
+  function ledon()  {
+	
+  	message = new Paho.MQTT.Message("ON");
+        message.destinationName = "/energy2";
+        client.send(message);
+
+   }
+
+  function ledoff()  {
+	
+  	message = new Paho.MQTT.Message("OFF");
+        message.destinationName = "/energy2";
+        client.send(message);
+
+   }
+
+function check()
+{
+if(document.getElementById("icd").checked==false)
+ledoff();
+else 
+ledon();
+}
+
+function check2()
+{
+if(document.getElementById("icd2").checked==false)
+{
+
+message = new Paho.MQTT.Message("d");
+        message.destinationName = "/Led";
+        client.send(message);
+
+}
+else 
+{
+message = new Paho.MQTT.Message("c");
+        message.destinationName = "/Led";
+        client.send(message);
+}
+}
+
+
+function check3()
+{
+if(document.getElementById("icd3").checked==false)
+{
+message = new Paho.MQTT.Message("f");
+        message.destinationName = "/Led";
+        client.send(message);
+}
+else 
+{
+
+message = new Paho.MQTT.Message("e");
+        message.destinationName = "/Led";
+        client.send(message);
+
+
+}
+}
+
+function check4()
+{
+if(document.getElementById("icd4").checked==false)
+{
+message = new Paho.MQTT.Message("h");
+        message.destinationName = "/Led";
+        client.send(message);
+
+
+}
+else 
+{
+message = new Paho.MQTT.Message("g");
+        message.destinationName = "/Led";
+        client.send(message);
+
+
+}
+}
+
+var modal = document.getElementById("modalBox");
+
+
+var open = document.getElementById("openModalBtn");
+var close = document.getElementsByClassName('closeModal')[0];
+var background = document.getElementById("container");
+
+open.addEventListener('click', openModal);
+close.addEventListener('click', closeModal);
+
+function openModal(){
+  modal.style.display = "block";
+  background.style.display = "block";
+  close.style.color = "#fff";
+}
+
+function closeModal(){
+  modal.style.display = "none";
+  background.style.display = "none";
+}
+
+</script>
+
+	</body>
+</html>
